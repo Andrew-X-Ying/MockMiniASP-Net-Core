@@ -4,7 +4,7 @@
     {
         public static async Task Main(string[] args)
         {
-            Console.WriteLine("Start");
+            Console.WriteLine("Start. Press Control+C to quit.");
             await new WebHostBuilder()
            .UseHttpListener()
            .Configure(app => app
@@ -13,6 +13,7 @@
                .Use(BazMiddleware))
            .Build()
            .StartAsync();
+            Console.WriteLine("End of Main.");
         }
 
         public static RequestDelegate FooMiddleware(RequestDelegate next)
